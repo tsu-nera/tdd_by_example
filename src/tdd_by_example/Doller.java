@@ -5,10 +5,5 @@ public class Doller extends Money {
 	public Doller(int amount, String currency) {
 		super(amount, currency);		
 	}
-
-	public Money times(int multiplier) {
-		return new Doller(amount * multiplier, currency);
-	}
-
 }
 
