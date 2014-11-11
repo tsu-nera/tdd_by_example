@@ -15,12 +15,12 @@ class Money {
 			&& currency().equals(money.currency());
 	}
 
-	public static Doller doller(int amount) {
-		return new Doller(amount, "USD");
+	static Money doller(int amount) {
+		return new Money(amount, "USD");
 	}
 
-	public static Franc franc(int amount) {
-		return new Franc(amount, "CHF");
+	static Money franc(int amount) {
+		return new Money(amount, "CHF");
 	}
 
 	Money times(int multiplier) {
