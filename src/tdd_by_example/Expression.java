@@ -1,3 +1,5 @@
 package tdd_by_example;
 
-interface Expression
+interface Expression {
+	Money reduce(String to);
+}
