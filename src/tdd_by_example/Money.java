@@ -15,7 +15,7 @@ class Money implements Expression{
 			&& currency().equals(money.currency());
 	}
 
-	static Money doller(int amount) {
+	static Money dollar(int amount) {
 		return new Money(amount, "USD");
 	}
 
@@ -23,7 +23,7 @@ class Money implements Expression{
 		return new Money(amount, "CHF");
 	}
 
-	Money times(int multiplier) {
+	public Expression times(int multiplier) {
 		return new Money(amount * multiplier, currency);
 	}
 	
@@ -35,12 +35,14 @@ class Money implements Expression{
 		return amount + " " + currency;
 	}
 
-	Expression plus(Money addend) {
+	public Expression plus(Expression addend) {
 		return new Sum(this, addend);
 	}
 
 	public Money reduce(Bank bank, String to) {
-		int rate = bank.rate(currency, to);
-		return new Money(amount/rate, to);
+		int rate = bank.rate(currency,to);
+		return new Money(amount / rate, to);
 	}
 }
+
+

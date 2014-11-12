@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="tdd_by_example" default="compile" basedir=".">
+  
+  <property name="src" location="./src/tdd_by_example"/>
+  <property name="test" location="./test/tdd_by_example"/>
+  <property name="build" location="./bin"/>
+  <property name="build.test" location="./bin/test"/>  
+  <property name="dist" location="d./ist"/>
+  
+  <target name="compile">
+    <javac srcdir="${src};${test}" destdir="${build}" includeAntRuntime="yes" />
+  </target>
+
+  <target name="test" depends="compile" >
+    <junit>
+      <formatter type="plain" usefile="false" />
+      <classpath> 
+     	<pathelement location="${build}" /> 
+     	<pathelement location="${build.test}" />	 
+      </classpath>       
+      <test name="tdd_by_example.MoneyTest" /> 
+    </junit> 
+  </target>
+</project>
